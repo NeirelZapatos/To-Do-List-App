@@ -1,0 +1,307 @@
+:root {
+    /* Dark Mode Colors */
+    --dark-background: linear-gradient(209.22deg, #20212C 4.25%, #0e0e0e 95.6%);;
+    --dark-background2: #2B2C37;    
+    --dark-title-text: #fff;
+
+    --light-background: linear-gradient(209.22deg, #ffffff 4.25%, #f1f1f1 95.6%);
+    --light-background2: #ffffff;
+    --light-title-text: #000000;
+
+    --black: #292929;
+    --red: #e56a77;
+    --height: 730px;
+    --width: 411px;
+    --font: "Open Sans", sans-serif;    
+}
+
+* {
+    box-sizing: border-box;    
+    outline: none;
+}
+
+body{
+    background: var(--light-background);
+    font-family: var(--font);
+    font-size: 1.4rem;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background .5s ease;
+}
+
+body.dark-mode {
+    background: var(--dark-background);
+}
+
+#movingDiv {
+    position: absolute;
+    top: -1000px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 125vw;
+    height: 500px;
+    rotate: 10deg;
+    background-color: white;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    z-index: 99;
+}
+
+#movingDiv.dark-mode {
+    background-color: var(--dark-background2);
+}
+
+
+#list-container{
+    background: var(--light-background2);
+    border-radius: 22px;
+    top: 10%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    transition: background 0.2s ease;
+}
+
+#list-container.dark-mode {
+    background: var(--dark-background2);
+}
+
+#title-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#title {
+    font-family: var(--font);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--light-title-text);
+    padding: 9px 18px;
+}
+
+#title.dark-mode {
+    color: var(--dark-title-text);
+}
+
+#separator {
+    margin: 12px 0;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.15);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    max-width: 100%;
+    height: 10px;
+  }
+
+#items-container {
+    padding: 8px 8px;
+    margin: 12px 0;
+}
+
+.newItem {
+    /* position: relative; */
+    width: 100%;
+    padding: 9px 0;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-family: var(--font);
+    margin: 0;
+    color: var(--light-title-text);
+    transition: .3s;
+}
+
+.newItem.dark-mode {
+    color: var(--dark-title-text);
+}
+
+.itemDate {
+    font-size: 14px;
+    position: absolute;
+    top: 35px;
+    left: 43px;
+}
+
+.itemContent {
+    font-size: 18px;
+}
+
+.trash-button{
+    color: black;
+    position: absolute;
+    right: 4px;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.trash-button.dark-mode {
+    color: white;
+}
+
+.check-button {
+    color: var(--white);
+    margin-right: 9px;
+    font-size: 18px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+#input-area {
+    padding: 24px 48px 24px 48px;
+    display: flex;
+    background-color: var(--white);
+}
+
+#item-input {
+    display: inline-block;
+    font: var(--font);
+    background: transparent;
+    border: none;
+    color: grey;
+}
+
+#item-input.dark-mode {
+    color: white;  
+}
+
+#date-picker {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    color: grey;
+    font: var(--font);
+}
+
+#date-picker.dark-mode {
+    color: white;
+}
+
+.add-new-item-btn {
+    padding: 0 18px;
+    border: none;
+    color: var(--red);
+    background: var(--white);
+}
+
+button > i {
+    pointer-events: none;
+}
+
+.nukebutton {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    padding: 10px;
+    z-index: 1;
+}
+
+.checked{
+    color: #27FDC7;
+    text-decoration: line-through;
+}
+
+.checked.dark-mode {
+    color: #27FDC7; /* Dark mode background color */
+    /* Add other styles as needed */
+}
+
+.newItem.dragging {
+    opacity: 0.5; /* Add your preferred styling for the dragged item */
+}
+
+#footer {
+    position: aboslute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+#page-container {
+    padding-bottom: 2.5rem;
+}
+
+.toggle-container {
+    width: 251px;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--background-color-2);
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out 0.1s;
+    position: absolute;
+    top: 10px;
+    right: 1px;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 32px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #635FC7;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .fa-sun,.fa-moon {
+    color: #828FA3;
+  }
+
+  #dark-mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
