@@ -123,9 +123,7 @@ body.dark-mode {
 
 .itemDate {
     font-size: 14px;
-    position: absolute;
-    top: 35px;
-    left: 43px;
+    margin-left: auto;
 }
 
 .itemContent {
@@ -134,7 +132,7 @@ body.dark-mode {
 
 .trash-button{
     color: black;
-    position: absolute;
+    margin-left: auto;
     right: 4px;
     font-size: 18px;
     background: transparent;
